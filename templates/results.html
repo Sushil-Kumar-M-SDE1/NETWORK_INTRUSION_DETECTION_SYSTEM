@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Training Results</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 50px;
+            color: #2c3e50;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-top: 30px;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        pre {
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            padding: 20px;
+            font-size: 16px;
+            color: #2c3e50;
+            margin: 20px auto;
+            width: 80%;
+            white-space: pre-wrap; 
+            word-wrap: break-word;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-back {
+            background-color: #2980b9;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        .btn-back:hover {
+            background-color: #3498db;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .card h2 {
+            font-size: 26px;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Model Training Results</h1>
+
+    <div class="container">
+        <div class="card">
+            <h2>Accuracy</h2>
+            <p><strong>{{ accuracy }}</strong></p>
+
+            <h2>Confusion Matrix</h2>
+            <pre>{{ conf_matrix }}</pre>
+
+            <h2>Classification Report</h2>
+            <pre>{{ class_report }}</pre>
+
+            <a href="{{ url_for('predict') }}" class="btn-back">Next</a>
+        </div>
+    </div>
+
+</body>
+</html>

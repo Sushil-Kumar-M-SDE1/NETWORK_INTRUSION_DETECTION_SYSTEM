@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Intrusion Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 14px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            margin-top: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enter Network Data for Intrusion Prediction</h1>
+    </header>
+    
+    <div class="container">
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="feature1">Duration:</label>
+                <input type="text" id="feature1" name="feature1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature2">SRC_Bytes:</label>
+                <input type="text" id="feature2" name="feature2" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature3">DST_Bytes:</label>
+                <input type="text" id="feature3" name="feature3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature4">Count:</label>
+                <input type="text" id="feature4" name="feature4" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature5">SRV_Count:</label>
+                <input type="text" id="feature5" name="feature5" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature6">Same_SRV_Rate:</label>
+                <input type="text" id="feature6" name="feature6" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature7">Diff_SRV_Rate:</label>
+                <input type="text" id="feature7" name="feature7" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature8">SRV_Diff_Host_Rate:</label>
+                <input type="text" id="feature8" name="feature8" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature9">DST_Host_Count:</label>
+                <input type="text" id="feature9" name="feature9" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature10">DST_Host_SRV_Count:</label>
+                <input type="text" id="feature10" name="feature10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature11">DST_Host_Same_SRV_Rate:</label>
+                <input type="text" id="feature11" name="feature11" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature12">DST_Host_Diff_SRV_Rate:</label>
+                <input type="text" id="feature12" name="feature12" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature13">DST_Host_Same_Src_Port_Rate:</label>
+                <input type="text" id="feature13" name="feature13" required>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Need help? <a href="#">Contact us</a></p>
+    </div>
+
+    <script>
+        // Optional: Add some form validation or interactivity here
+        // Example: show alert if the form is submitted without values
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            let formValid = true;
+            // You can add additional client-side validation logic here.
+            // For example, check if all fields have valid numeric values.
+            for (let i = 1; i <= 13; i++) {
+                let featureInput = document.getElementById('feature' + i);
+                if (isNaN(featureInput.value) || featureInput.value.trim() === "") {
+                    formValid = false;
+                    alert("Please enter a valid number for Feature " + i);
+                    break;
+                }
+            }
+
+            if (!formValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

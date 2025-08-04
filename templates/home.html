@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Intrusion Detection System (NIDS)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Network Intrusion Detection System (NIDS)</h1>
+            <p>Powered by Machine Learning</p>
+        </div>
+        <nav>
+            <ul>
+                
+                <li><a href="#login">Login</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Home page link to About page -->
+                <li><a href="{{ url_for('about') }}"class="btnn">About</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <div class="container">
+        <header>
+            <h1>Welcome to Network Intrusion Detection System (NIDS)</h1>
+        </header>
+        <div class="content">
+            <p>Our system uses machine learning to detect and prevent intrusions on your network. Click the button below to learn more about the system.</p>
+            
+        </div>
+    </div>
+
+
+    <main>
+        <section id="about">
+            <h2>Introduction to NIDS</h2>
+            <p>
+                A Network Intrusion Detection System (NIDS) monitors network traffic to detect unauthorized access or attacks.
+                With machine learning, NIDS can adapt to new threats and detect malicious activities in real time.
+            </p>
+        </section>
+
+        <section id="login">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, reach out via email:</p>
+            <p>Email: <a href="mailto:support@nidsystem.com">abc..xyz@gmail.com</a></p>
+        </section>
+    </main>
+
+
+</body>
+</html>
